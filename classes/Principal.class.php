@@ -12,7 +12,7 @@ class Principal
 	}
 
 	public function inserirPrincipal($nome, $sexo, $est_civil, $dt_nasc, $cpf, $rg, $endereco, $bairro, $zona, $telefone, $email, $naturalidade, $tempo, $ocupacao, $remuneracao, $outras_rendas, $cadunico, $nis, $bolsa_familia, $bpc, $escolaridade, $imovel, $comodos, $aluguel, $risco, $deficiencia, $observ){
-        $sql = $this->pdo->prepare("INSERT INTO principal (nome, sexo, est_civil, dt_nasc, cpf, rg, endereco, bairro, zona, telefone, email, naturalidade, tempo, ocupacao, remuneracao, outras_rendas, cadunico, nis, bolsa_familia, bpc, escolaridade, imovel, comodos, aluguel, risco, deficiencia, observ) VALUES (:nome, :sexo, :est_civil, :dt_nasc, :cpf, :rg, :endereco, :bairro, :zona, :telefone, :email, :naturalidade, :tempo, :ocupacao, :remuneracao, :outras_rendas, :cadunico, :nis, :bolsa_familia, :bpc, :escolaridade, :imovel, :comodos, :aluguel, :risco, :deficiencia, :observ)");
+        $sql = $this->pdo->prepare("INSERT INTO principal (nome, sexo, est_civil, dt_nasc, cpf, rg, endereco, bairro, zona, telefone, email, naturalidade, tempo, ocupacao, remuneracao, outras_rendas, cadunico, nis, bolsa_familia, bpc, escolaridade, imovel, comodos, aluguel, risco, deficiencia, observ, insercao) VALUES (:nome, :sexo, :est_civil, :dt_nasc, :cpf, :rg, :endereco, :bairro, :zona, :telefone, :email, :naturalidade, :tempo, :ocupacao, :remuneracao, :outras_rendas, :cadunico, :nis, :bolsa_familia, :bpc, :escolaridade, :imovel, :comodos, :aluguel, :risco, :deficiencia, :observ, now())");
         $sql ->bindValue(":nome", utf8_decode($nome));
         $sql ->bindValue(":sexo", utf8_decode($sexo));
         $sql ->bindValue(":est_civil", utf8_decode($est_civil));
@@ -50,7 +50,7 @@ class Principal
                 naturalidade = :naturalidade, tempo = :tempo, remuneracao = :remuneracao, outras_rendas = :outras_rendas, cadunico = :cadunico, nis = :nis, 
                 bolsa_familia = :bolsa_familia, bpc = :bpc, escolaridade = :escolaridade, 
                 imovel = :imovel, comodos = :comodos, aluguel = :aluguel, risco = :risco, 
-                deficiencia = :deficiencia, observ = :observ, ocupacao = :ocupacao WHERE id = :id");
+                deficiencia = :deficiencia, observ = :observ, ocupacao = :ocupacao, atualizacao = now() WHERE id = :id");
         $sql ->bindValue(":nome", utf8_decode($nome));
         $sql ->bindValue(":sexo", utf8_decode($sexo));
         $sql ->bindValue(":est_civil", utf8_decode($est_civil));
@@ -92,6 +92,17 @@ class Principal
         $sql = $this->pdo->prepare("SELECT id, nome, sexo, est_civil, dt_nasc, cpf, rg, endereco, bairro, zona, telefone, email, naturalidade, tempo, ocupacao, remuneracao, outras_rendas, cadunico, nis, bolsa_familia, bpc, escolaridade, imovel, comodos, aluguel, risco, deficiencia From principal");
         $sql ->execute();
         return $sql->fetchAll();
+        }
+
+        public function listaAllPrincipalPage($p, $qntpg){
+        $sql = $this->pdo->prepare("SELECT id, nome, cpf From principal ORDER BY id desc LIMIT $p, $qntpg");
+        $sql ->execute();
+        return $sql->fetchAll();
+        }
+        public function countPrincipal(){
+        $sql = $this->pdo->prepare("SELECT count(id) as total FROM principal");
+        $sql->execute();
+        return $sql->fetch();
         }
 
 }

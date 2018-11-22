@@ -9,7 +9,7 @@
         <a class="nav-link" href="index.php"><label class="fas fa-file-alt">Cadastrar</label></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="consulta_principal.php"><label class="fas fa-file-pdf">Consulta</label></a>
+        <a class="nav-link" href="consulta_principal.php?1"><label class="fas fa-file-pdf">Consulta</label></a>
       </li>
       <li class="nav-item active dropdown">
         <a class="nav-link dropdown-toggle active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
