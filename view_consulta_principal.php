@@ -236,6 +236,7 @@ somar(1);
 				<option value="Com familiares" <?php if($principal['imovel'] == 'Com familiares') echo "selected" ?>>Com familiares</option>
 				<option value="Invadido" <?php if($principal['imovel'] == 'Invadido') echo "selected" ?>>Invadido</option>
 				<option value="Alugado" <?php if($principal['imovel'] == 'Alugado') echo "selected" ?>>Alugado</option>
+				<option value="Próprio" <?php if(utf8_encode($principal['imovel']) == 'Próprio') echo "selected" ?>>Próprio</option>
 			</select>
 			<?php $_SESSION['PRINCIPAL']['imovel'] =  $principal['imovel'];?>
 		</div>
@@ -268,6 +269,7 @@ somar(1);
 				<option value="">Selecione...</option>
 				<option value="Nenhuma" <?php if($principal['deficiencia'] == 'Nenhuma') echo "selected" ?>>Nenhuma</option>
 				<option value="Motora (cadeirante)" <?php if($principal['deficiencia'] == 'Motora (cadeirante)') echo "selected" ?>>Motora (cadeirante)</option>
+				<option value="Motora (não cadeirante)" <?php if(utf8_encode($principal['deficiencia']) == 'Motora (não cadeirante)') echo "selected" ?>>Motora (não cadeirante)</option>
 				<option value="Visual" <?php if($principal['deficiencia'] == 'Visual') echo "selected" ?>>Visual</option>
 				<option value="Auditiva" <?php if($principal['deficiencia'] == 'Auditiva') echo "selected" ?>>Auditiva</option>
 				<option value="Mental" <?php if($principal['deficiencia'] == 'Mental') echo "selected" ?>>Mental</option>

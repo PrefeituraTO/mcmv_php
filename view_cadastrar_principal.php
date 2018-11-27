@@ -169,6 +169,7 @@
 				<option value="Com familiares">Com familiares</option>
 				<option value="Invadido">Invadido</option>
 				<option value="Alugado">Alugado</option>
+				<option value="Próprio">Próprio</option>
 			</select>
 		</div>
 		<div class="col-md">
@@ -199,9 +200,11 @@
 				<option value="">Selecione...</option>
 				<option value="Nenhuma">Nenhuma</option>
 				<option value="Motora (cadeirante)">Motora (cadeirante)</option>
+				<option value="Motora (não cadeirante)">Motora (não cadeirante)</option>
 				<option value="Visual">Visual</option>
 				<option value="Auditiva">Auditiva</option>
 				<option value="Mental">Mental</option>
+				Motora (não cadeirante)
 			</select>
 		</div>
 	</div>
